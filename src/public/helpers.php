@@ -13,9 +13,9 @@ function validateHmac($params, $secret) {
 // Helper method for exchanging credentials
 function getAccessToken($shop, $apiKey, $secret, $code) {
   $query = array(
-	'client_id' => $apiKey,
-	'client_secret' => $secret,
-	'code' => $code
+  	'client_id' => $apiKey,
+  	'client_secret' => $secret,
+  	'code' => $code
 	);
 
 	// Build access token URL
