@@ -7,6 +7,10 @@ Create a new file called `.env` which contains your Shopify API credentials and 
 See `.env.example` for an example.
 
 ### Install dependencies
+First, ensure your PHP version is 7.0 or greater. (`php -v`)
+
+Then install the necessary project dependencies through `composer`:
+
 ```shell
 cd src
 composer install
