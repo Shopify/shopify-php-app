@@ -5,8 +5,10 @@ A simple Shopify app in PHP.
 Create a new file called `.env` which contains your Shopify API credentials. See `.env.example` for an example.
 
 ## Install dependencies
-`cd src`
-`composer install`
+```shell
+cd src
+composer install
+```
 
 ## Run the application
 `php -S localhost:8000`
