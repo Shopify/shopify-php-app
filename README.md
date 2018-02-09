@@ -16,6 +16,13 @@ cd src/public
 php -S localhost:8000
 ```
 
+### Installing to your Shopify store
+Navigate to the following URL in your browser:
+
+`http://localhost:8000/?shop=my-test-shop.myshopify.com`
+
+Making the appropriate subsitutions for your hostname and `myshopify` domain.
+
 ## Advanced Usage
 
 `helpers.php` includes a simple API wrapper for Shopify.
