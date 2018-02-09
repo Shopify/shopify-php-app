@@ -1,19 +1,22 @@
-A simple Shopify app in PHP.
+# A simple Shopify app in PHP.
 
-# Getting Started
+## Getting Started
 
 Create a new file called `.env` which contains your Shopify API credentials. See `.env.example` for an example.
 
-## Install dependencies
+### Install dependencies
 ```shell
 cd src
 composer install
 ```
 
-## Run the application
-`php -S localhost:8000`
+### Run the application
+```shell
+cd src/public
+php -S localhost:8000
+```
 
-# Advanced Usage
+## Advanced Usage
 
 `helpers.php` includes a simple API wrapper for Shopify.
 
