@@ -2,7 +2,9 @@
 
 ## Getting Started
 
-Create a new file called `.env` which contains your Shopify API credentials. See `.env.example` for an example.
+Create a new file called `.env` which contains your Shopify API credentials and server hostname (with port).
+
+See `.env.example` for an example.
 
 ### Install dependencies
 ```shell

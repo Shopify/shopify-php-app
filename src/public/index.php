@@ -10,7 +10,8 @@ $dotenv->load();
 
 $config = [
   'apiKey' => $_ENV['API_KEY'],
-  'secret' => $_ENV['SECRET']
+  'secret' => $_ENV['SECRET'],
+  'host' => $_ENV['HOST']
 ];
 
 $app = new \Slim\App($config);
@@ -18,17 +19,14 @@ $app = new \Slim\App($config);
 // install route
 $app->get('/', function (Request $request, Response $response) {
   $apiKey = $this->get('apiKey');
+  $host = $this->get('host');
   $shop = $request->getQueryParam('shop');
   if (!validShopDomain($shop)) {
    return $response->getBody()->write("Invalid shop domain!");
   }
 
   $scope = 'read_products';
-
-  $scheme = $request->getUri()->getScheme();
-  $host = $request->getUri()->getHost();
-  $port = $request->getUri()->getPort();
-  $redirectUri = $scheme . "://" . $host . ":" . $port . $this->router->pathFor('oAuthCallback');
+  $redirectUri = $host . $this->router->pathFor('oAuthCallback');
   $installUrl = "https://{$shop}/admin/oauth/authorize?client_id={$apiKey}&scope={$scope}&redirect_uri={$redirectUri}";
 
   return $response->withRedirect($installUrl);
