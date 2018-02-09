@@ -1,4 +1,18 @@
 <?php
+// Helper method to determine if a shop domain is valid
+function validShopDomain($shop) {
+  $substring = explode('.', $shop);
+
+  // 'blah.myshopify.com'
+  if (count($substring) != 3) {
+    return FALSE;
+  }
+
+  // allow dashes and alphanumberic characters
+  $substring[0] = str_replace('-', '', $substring[0]);
+  return (ctype_alnum($substring[0]) && $substring[1] . '.' . $substring[2] == 'myshopify.com');
+}
+
 // Helper method to determine if a request is valid
 function validateHmac($params, $secret) {
   $hmac = $params['hmac'];

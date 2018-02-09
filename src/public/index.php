@@ -19,6 +19,10 @@ $app = new \Slim\App($config);
 $app->get('/', function (Request $request, Response $response) {
   $apiKey = $this->get('apiKey');
   $shop = $request->getQueryParam('shop');
+  if (!validShopDomain($shop)) {
+   return $response->getBody()->write("Invalid shop domain!");
+  }
+
   $scope = 'write_products,read_orders';
 
   $scheme = $request->getUri()->getScheme();
