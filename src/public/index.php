@@ -23,7 +23,7 @@ $app->get('/', function (Request $request, Response $response) {
    return $response->getBody()->write("Invalid shop domain!");
   }
 
-  $scope = 'write_products,read_orders';
+  $scope = 'read_products';
 
   $scheme = $request->getUri()->getScheme();
   $host = $request->getUri()->getHost();
