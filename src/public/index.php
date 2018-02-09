@@ -21,7 +21,7 @@ $app->get('/', function (Request $request, Response $response) {
   $apiKey = $this->get('apiKey');
   $host = $this->get('host');
   $shop = $request->getQueryParam('shop');
-  if (!validShopDomain($shop)) {
+  if (!validateShopDomain($shop)) {
    return $response->getBody()->write("Invalid shop domain!");
   }
 
@@ -38,9 +38,10 @@ $app->get('/auth/shopify/callback', function (Request $request, Response $respon
   $apiKey = $this->get('apiKey');
   $secret = $this->get('secret');
   $validHmac = validateHmac($params, $secret);
+  $validShop = validateShopDomain($params['shop']);
   $accessToken = "";
 
-  if ($validHmac) {
+  if ($validHmac && $validShop) {
     $accessToken = getAccessToken($params['shop'], $apiKey, $secret, $params['code']);
   } else {
     return $response->getBody()->write("This request is NOT from Shopify!");

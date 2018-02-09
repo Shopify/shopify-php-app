@@ -1,6 +1,6 @@
 <?php
 // Helper method to determine if a shop domain is valid
-function validShopDomain($shop) {
+function validateShopDomain($shop) {
   $substring = explode('.', $shop);
 
   // 'blah.myshopify.com'
